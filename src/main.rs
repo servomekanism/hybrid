@@ -24,6 +24,7 @@
 use std::env;
 use std::fs::File;
 use std::io::{BufRead, BufReader, BufWriter, Write};
+use std::process;
 
 #[rustfmt::skip]
 fn main() -> std::io::Result<()> {
@@ -31,7 +32,7 @@ fn main() -> std::io::Result<()> {
 
     if args.len() != 3 {
         eprintln!("Usage: {} <input_file> <output_file>", args[0]);
-        return Ok(());
+        process::exit(1);
     }
 
     let names_file = File::open(&args[1])?;
