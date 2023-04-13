@@ -47,8 +47,6 @@ fn main() -> std::io::Result<()> {
         names.push((part[0].to_string(), part[1].to_string()));
     }
 
-    let mut permutations = Vec::new();
-
     for (name, surname) in names {
         let username_permutations = vec![
             format!("{}{}", name.to_lowercase().chars().next().unwrap(), surname.to_lowercase()),
@@ -62,12 +60,10 @@ fn main() -> std::io::Result<()> {
             format!("{}{}", name.to_lowercase().chars().next().unwrap(), surname.to_lowercase().chars().next().unwrap()),
             format!("{}{}", surname.to_lowercase().chars().next().unwrap(), name.to_lowercase().chars().next().unwrap())
         ];
-
-        permutations.push(username_permutations);
-    }
-
-    for permutation in permutations.iter().flatten() {
-        writeln!(writer, "{}", permutation).unwrap();
+        
+        for username in username_permutations {
+            write!(writer, "{}\n", username).unwrap();
+        }
     }
 
     Ok(())
