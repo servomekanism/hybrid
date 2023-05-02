@@ -26,7 +26,6 @@ use std::fs::File;
 use std::io::{BufRead, BufReader, BufWriter, Write};
 use std::process;
 
-#[rustfmt::skip]
 fn main() -> std::io::Result<()> {
     let args: Vec<String> = env::args().collect();
 
@@ -50,18 +49,42 @@ fn main() -> std::io::Result<()> {
 
     for (name, surname) in names {
         let username_permutations = vec![
-            format!("{}{}", name.to_lowercase().chars().next().unwrap(), surname.to_lowercase()),
-            format!("{}.{}", name.to_lowercase().chars().next().unwrap(), surname.to_lowercase()),
+            format!(
+                "{}{}",
+                name.to_lowercase().chars().next().unwrap(),
+                surname.to_lowercase()
+            ),
+            format!(
+                "{}.{}",
+                name.to_lowercase().chars().next().unwrap(),
+                surname.to_lowercase()
+            ),
             format!("{}{}", name.to_lowercase(), surname.to_lowercase()),
             format!("{}.{}", name.to_lowercase(), surname.to_lowercase()),
-            format!("{}{}", surname.to_lowercase(), name.to_lowercase().chars().next().unwrap()),
-            format!("{}.{}", surname.to_lowercase(), name.to_lowercase().chars().next().unwrap()),
+            format!(
+                "{}{}",
+                surname.to_lowercase(),
+                name.to_lowercase().chars().next().unwrap()
+            ),
+            format!(
+                "{}.{}",
+                surname.to_lowercase(),
+                name.to_lowercase().chars().next().unwrap()
+            ),
             format!("{}{}", surname.to_lowercase(), name.to_lowercase()),
             format!("{}.{}", surname.to_lowercase(), name.to_lowercase()),
-            format!("{}{}", name.to_lowercase().chars().next().unwrap(), surname.to_lowercase().chars().next().unwrap()),
-            format!("{}{}", surname.to_lowercase().chars().next().unwrap(), name.to_lowercase().chars().next().unwrap())
+            format!(
+                "{}{}",
+                name.to_lowercase().chars().next().unwrap(),
+                surname.to_lowercase().chars().next().unwrap()
+            ),
+            format!(
+                "{}{}",
+                surname.to_lowercase().chars().next().unwrap(),
+                name.to_lowercase().chars().next().unwrap()
+            ),
         ];
-        
+
         for username in username_permutations {
             write!(writer, "{}\n", username).unwrap();
         }
