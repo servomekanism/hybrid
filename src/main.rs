@@ -86,7 +86,7 @@ fn main() -> std::io::Result<()> {
         ];
 
         for username in username_permutations {
-            write!(writer, "{}\n", username).unwrap();
+            writeln!(writer, "{}", username).unwrap();
         }
     }
 
