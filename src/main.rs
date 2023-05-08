@@ -53,36 +53,36 @@ fn main() -> std::io::Result<()> {
                 "{}{}",
                 name.to_lowercase().chars().next().unwrap(),
                 surname.to_lowercase()
-            ),
+            ), // nsurname
             format!(
                 "{}.{}",
                 name.to_lowercase().chars().next().unwrap(),
                 surname.to_lowercase()
-            ),
-            format!("{}{}", name.to_lowercase(), surname.to_lowercase()),
-            format!("{}.{}", name.to_lowercase(), surname.to_lowercase()),
+            ), // n.surname
+            format!("{}{}", name.to_lowercase(), surname.to_lowercase()), // namesurname
+            format!("{}.{}", name.to_lowercase(), surname.to_lowercase()), // name.surname
             format!(
                 "{}{}",
                 surname.to_lowercase(),
                 name.to_lowercase().chars().next().unwrap()
-            ),
+            ), // surnamen
             format!(
                 "{}.{}",
                 surname.to_lowercase(),
                 name.to_lowercase().chars().next().unwrap()
-            ),
-            format!("{}{}", surname.to_lowercase(), name.to_lowercase()),
-            format!("{}.{}", surname.to_lowercase(), name.to_lowercase()),
+            ), // surname.n
+            format!("{}{}", surname.to_lowercase(), name.to_lowercase()), // surnamename
+            format!("{}.{}", surname.to_lowercase(), name.to_lowercase()), // surname.name
             format!(
                 "{}{}",
                 name.to_lowercase().chars().next().unwrap(),
                 surname.to_lowercase().chars().next().unwrap()
-            ),
+            ), // ns
             format!(
                 "{}{}",
                 surname.to_lowercase().chars().next().unwrap(),
                 name.to_lowercase().chars().next().unwrap()
-            ),
+            ), // sn
         ];
 
         for username in username_permutations {
